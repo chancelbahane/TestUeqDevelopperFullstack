@@ -1,12 +1,12 @@
 # TestUeqDevelopperFullstack
 
-/*pour résoudre le premier problème qui est de la réparation de l'infrastructure (Docker), il sied:
- - Vérification des logs de Dockers: Exécution docker-compose logs pour voir les logs de l'application et de la base de données
- - vérification de la configuration de la base de données: ici on veut s'assurer que l'application.yml est correct
- - verifcation du réseau docker*
- - vérification du volume docker*
- - on recréer lesconteneurs
- - verification des ports/
+/*pour résoudre le premier problème qui est de la réparation de l'infrastructure (Docker), il sied de :
+ - Vérifier les logs de Dockers: on exécute docker-compose logs pour voir les logs de l'application et de la base de données
+ - vérifier la configuration de la base de données: ici on veut s'assurer que l'application.yml est correct
+ - verifier le réseau docker*
+ - vérifier le volume docker*
+ - Recréer les conteneurs
+ - verifier les ports */
 
  //CODE PROPRIETES
 
@@ -58,7 +58,7 @@ volumes:
 
 //II.Pour le problème de l'optimisation de la base de donnéés:
 
-/* -on doit activer leslogs hinernate
+/* -on doit activer les logs hinernate
    - excecuter l'endpointGET/Categorie et analyser les logs Hibernate pour voir les requetes SQL générées
    - On echerche les requetes qui sont executées de manière repetée pour chargée les donnée de la catégorie
    */
@@ -123,7 +123,7 @@ public class OrderService {
         
         // Réduire le stock du produit
 
-/* voici comment on peut refactoriser la classe LegacyPaymentProcessor pour utiliser les standards Spring Boot
+/* Refactorisation de la classe LegacyPaymentProcessor pour utiliser les standards Spring Boot
    */
    @Service
 public class PaymentProcessor {
@@ -149,7 +149,7 @@ public class PaymentProcessor {
             throw new PaymentNotFoundException("Paiement non trouvé");
         }
         
-        // Traiter le paiement
+        // Traitement du paiement
         String paymentProcessorResponse = sendPaymentRequest(payment);
         
         // Mettre à jour le statut du paiement
@@ -158,7 +158,7 @@ public class PaymentProcessor {
     }
     
     private String sendPaymentRequest(Payment payment) {
-        // Envoyer la requête de paiement au processeur de paiement
+        // Envoi de la requête de paiement au processeur de paiement
         RestTemplate restTemplate = new RestTemplate();
         HttpHeaders headers = new HttpHeaders();
         headers.setBasicAuth(paymentProcessorUsername, paymentProcessorPassword);
